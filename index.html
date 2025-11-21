@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Personal Website</title>
+  <meta name="description" content="Personal website — short tagline about you." />
+
+  <style>
+    /* ========= Simple CSS reset ========= */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height:1.4;
+      color:#0f1724;
+      background:linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* ====== Layout variables ====== */
+    :root{
+      --accent:#7c3aed; /* purple accent */
+      --muted:#64748b;
+      --container-max:1000px;
+      --radius:14px;
+      --glass: rgba(255,255,255,0.6);
+    }
+
+    /* ====== Container ====== */
+    .wrap{
+      max-width:var(--container-max);
+      margin:0 auto;
+      padding:36px 24px;
+    }
+
+    /* ====== Header / hero ====== */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:36px;
+    }
+    .logo{
+      font-weight:700;
+      font-size:18px;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      margin-left:18px;
+      font-weight:600;
+      font-size:14px;
+    }
+    nav a:hover{color:var(--accent)}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-left h1{
+      margin:0 0 8px 0;
+      font-size:36px;
+      line-height:1.02;
+    }
+    .hero-left p{margin:0 0 20px 0;color:var(--muted)}
+    .cta{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),#5b21b6);
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .card{
+      border-radius:var(--radius);
+      padding:18px;
+      background: linear-gradient(180deg, rgba(124,58,237,0.08), rgba(124,58,237,0.03));
+      box-shadow: 0 6px 20px rgba(15,23,36,0.06);
+    }
+
+    /* ====== Sections ====== */
+    section{
+      margin-top:36px;
+      padding:28px;
+      background: white;
+      border-radius:12px;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.03);
+    }
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:16px;
+    }
+    .section-title h2{margin:0;font-size:20px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* ====== Projects grid ====== */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+    }
+    .project{
+      padding:12px;
+      border-radius:10px;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border:1px solid rgba(15,23,36,0.04);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .project:hover{transform:translateY(-6px); box-shadow:0 12px 30px rgba(15,23,36,0.06)}
+
+    /* ====== Contact form ====== */
+    form{display:grid;gap:12px}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #e6eef8;
+      font-size:14px;
+      resize:vertical;
+    }
+    button[type="submit"]{
+      padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:700;
+    }
+
+    /* ====== Footer ====== */
+    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:18px}
+
+    /* ====== Small screens ====== */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+      header{align-items:flex-start;flex-direction:column;gap:10px}
+    }
+
+    /* ====== Simple reveal animation ====== */
+    .reveal{
+      opacity:0;
+      transform:translateY(12px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">YourName</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="hero-left">
+          <h1 class="reveal">Hi — I'm <span style="color:var(--accent)">Your Name</span></h1>
+          <p class="reveal">A short tagline: what you do, in one line. Designer. Developer. Problem-solver.</p>
+          <p class="reveal">
+            <a class="cta" href="#contact">Work with me →</a>
+          </p>
+        </div>
+
+        <div>
+          <div class="card reveal" style="text-align:center">
+            <p style="margin:0;font-weight:700">Current</p>
+            <p class="muted" style="margin:4px 0 0 0">Open to freelance & contract work</p>
+            <hr style="margin:14px 0;border:none;border-top:1px solid rgba(2,6,23,0.06)">
+            <p class="muted" style="font-size:13px;margin:0">Location</p>
+            <p style="margin:6px 0 0 0;font-weight:600">Your City</p>
+          </div>
+        </div>
+      </div>
+
+      <section id="about" class="reveal">
+        <div class="section-title">
+          <h2>About</h2>
+        </div>
+        <p class="muted">Write a paragraph about yourself. Keep it short and friendly. Mention tools you use or what you enjoy building.</p>
+      </section>
+
+      <section id="projects" class="reveal">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <div class="muted">Selected work</div>
+        </div>
+
+        <div class="projects">
+          <article class="project">
+            <h3 style="margin:0 0 6px 0">Project One</h3>
+            <p class="muted" style="margin:0 0 8px 0">A one-sentence description of the project.</p>
+            <a href="#" style="font-weight:700;font-size:13px">View →</a>
+          </article>
+
+          <article class="project">
+            <h3 style="margin:0 0 6px 0">Project Two</h3>
+            <p class="muted" style="margin:0 0 8px 0">Another description.</p>
+            <a href="#" style="font-weight:700;font-size:13px">View →</a>
+          </article>
+
+          <article class="project">
+            <h3 style="margin:0 0 6px 0">Project Three</h3>
+            <p class="muted" style="margin:0 0 8px 0">Short summary.</p>
+            <a href="#" style="font-weight:700;font-size:13px">View →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <form id="contactForm" action="#" method="POST" onsubmit="handleSubmit(event)">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="you@example.com" required />
+          <textarea id="message" rows="5" placeholder="Say hi — what are you working on?" required></textarea>
+          <button type="submit">Send</button>
+          <p id="formMsg" class="muted" style="margin:6px 0 0 0"></p>
+        </form>
+      </section>
+
+      <footer class="reveal">
+        © <span id="year"></span> Your Name — Built from scratch.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // ========== Small JS for interaction & reveal ==========
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    });
+
+    // Reveal on scroll
+    const revealEls = Array.from(document.querySelectorAll('.reveal'));
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.12});
+    revealEls.forEach(e=>revealObserver.observe(e));
+
+    // Fake contact submit (replace with real endpoint or service)
+    function handleSubmit(e){
+      e.preventDefault();
+      const btnText = document.querySelector('button[type="submit"]').textContent;
+      const msg = document.getElementById('formMsg');
+      msg.textContent = "Sending…";
+      // Simulate send
+      setTimeout(()=>{
+        msg.textContent = "Thanks! Your message was (pretend) sent. Replace this with a real form endpoint.";
+        document.getElementById('contactForm').reset();
+      }, 900);
+    }
+  </script>
+</body>
+</html>
