@@ -5,218 +5,204 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mirali Purohit — Portfolio</title>
   <meta name="description" content="Mirali Purohit — Product Designer & Frontend Developer. Portfolio and contact." />
-  <meta name="theme-color" content="#ffffff" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------- Root / Variables ---------- */
+    /* ====== Variables & reset ====== */
     :root{
-      --accent:#7c3aed;
-      --accent-dark:#5b21b6;
-      --muted:#667085;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --maxw:1100px;
+      --bg: #fbfbfd;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0f1724;
+      --accent: #5b21b6;    /* deep purple — adjust if you want exact color */
+      --accent-2:#7c3aed;
+      --maxw:1120px;
       --radius:14px;
-      --glass: rgba(255,255,255,0.7);
-      --shadow-1: 0 8px 30px rgba(2,6,23,0.04);
+      --shadow-1: 0 10px 30px rgba(2,6,23,0.06);
     }
-
-    /* ---------- Reset ---------- */
     *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#0f1724;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      color:var(--text);
+      background: linear-gradient(180deg,var(--bg) 0%, #ffffff 100%);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
-      line-height:1.45;
+      line-height:1.5;
     }
-    a{color:inherit}
-    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
 
-    /* ---------- Layout container ---------- */
+    /* ====== Page container ====== */
     .wrap{
       max-width:var(--maxw);
       margin:0 auto;
-      padding:28px 28px 80px;
+      padding:28px;
     }
 
-    /* ---------- Header ---------- */
+    /* ====== Header (thin, fixed) ====== */
     header{
       position:fixed;
       left:0;right:0;top:0;
+      background: rgba(255,255,255,0.70);
       backdrop-filter: blur(6px);
-      background: rgba(255,255,255,0.66);
       border-bottom:1px solid rgba(2,6,23,0.03);
-      z-index:1000;
+      z-index:1200;
     }
     .wrap-header{
       max-width:var(--maxw);
       margin:0 auto;
-      padding:14px 28px;
+      padding:12px 28px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:20px;
+      gap:12px;
     }
-    .logo{
-      font-weight:700;
-      font-size:16px;
-      letter-spacing:-0.01em;
-    }
-    nav a{
-      text-decoration:none;
-      color:var(--muted);
-      margin-left:18px;
-      font-weight:600;
-      font-size:14px;
-      transition:color .18s ease;
-    }
-    nav a:hover{color:var(--accent)}
+    .logo{font-weight:700; font-size:15px}
+    nav{display:flex;align-items:center}
+    nav a{color:var(--muted);margin-left:18px;font-weight:600;font-size:14px;opacity:0.95;transition:color .18s ease, transform .12s ease}
+    nav a:hover{color:var(--accent);transform:translateY(-1px)}
     nav a.active{color:var(--accent);}
 
-    /* keep content below header */
-    main{padding-top:86px}
+    main{padding-top:84px} /* leave room for fixed header */
 
-    /* ---------- Hero ---------- */
+    /* ====== Hero ====== */
     .hero{
       display:grid;
       grid-template-columns: 1fr 360px;
-      gap:34px;
-      align-items:center;
-      margin-top:6px;
-      padding:28px 0 6px;
+      gap:32px;
+      align-items:start;
+      padding:20px 0 6px;
     }
-    .hero-left .intro{
-      margin:0 0 12px 0;
-      color:var(--muted);
-      font-weight:600;
-      font-size:14px;
-    }
-    h1{
+    .hero-left{padding-right:6px}
+    .eyebrow{color:var(--muted);font-weight:600;margin:0 0 10px 0}
+    /* Big name: first name heavy, last name regular — like the example */
+    .hero-title{
+      margin:0 0 10px 0;
       font-family:Poppins, Inter;
       font-size:56px;
-      margin:0 0 12px 0;
       line-height:1.02;
-      letter-spacing:-0.01em;
+      display:flex;
+      gap:10px;
+      align-items:baseline;
+      flex-wrap:wrap;
     }
-    h1 .accent{color:var(--accent)}
+    .hero-title .first{font-weight:800;color:#0b1220}
+    .hero-title .last{font-weight:600;color:var(--accent-2);}
+
     .lead{
-      margin:0 0 20px 0;
+      margin:0 0 22px 0;
       color:var(--muted);
       font-size:17px;
-      max-width:58ch;
+      max-width:60ch;
     }
-    .hero-cta{display:flex;gap:12px;align-items:center}
+    .hero-actions{display:flex;gap:12px;align-items:center}
     .btn{
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:12px;
-      font-weight:700;
-      text-decoration:none;
-      cursor:pointer;
+      padding:12px 18px;border-radius:12px;font-weight:700;display:inline-block;cursor:pointer;border:0;
     }
-    .btn-primary{
-      background: linear-gradient(90deg,var(--accent),var(--accent-dark));
-      color:#fff;
-      border:0;
-      box-shadow: 0 6px 18px rgba(99,102,241,0.12);
-    }
-    .btn-ghost{
-      background:transparent;
-      border:1px solid rgba(15,23,36,0.06);
-      color:var(--muted);
-    }
+    .btn-primary{background:linear-gradient(90deg,var(--accent-2),var(--accent));color:#fff;box-shadow: 0 8px 30px rgba(99,102,241,0.08)}
+    .btn-ghost{background:transparent;border:1px solid rgba(2,6,23,0.06);color:var(--muted)}
 
-    /* profile card */
+    /* ====== Profile card (right) ====== */
     .profile-card{
-      background: linear-gradient(180deg, rgba(124,58,237,0.06), rgba(124,58,237,0.02));
-      padding:22px;
+      position:relative;
+      padding:30px 20px 20px;
       border-radius:16px;
-      text-align:center;
+      background: linear-gradient(180deg, rgba(124,58,237,0.06), rgba(124,58,237,0.02));
       box-shadow:var(--shadow-1);
+      text-align:center;
       min-height:220px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:10px;
+      overflow:visible;
+    }
+    /* circular avatar overlapping the top of the card (like the reference) */
+    .avatar-wrap{
+      position:absolute;
+      right:22px;
+      top:-46px;
+      width:92px;height:92px;
+      border-radius:999px;
+      padding:6px;
+      background:#fff;
+      box-shadow:0 12px 30px rgba(2,6,23,0.06);
+      display:flex;align-items:center;justify-content:center;
     }
     .avatar{
-      width:110px;height:110px;border-radius:999px;object-fit:cover;margin:0 auto;border:4px solid #fff;
-      box-shadow: 0 10px 30px rgba(15,23,36,0.06);
+      width:80px;height:80px;border-radius:999px;object-fit:cover;display:block;
     }
-    .profile-name{font-weight:700}
-    .profile-sub{color:var(--muted);font-size:14px}
+    .profile-name{font-weight:700;margin-top:22px}
+    .profile-sub{color:var(--muted);font-size:14px;margin-top:6px}
+    .profile-note{color:var(--muted);font-size:13px;margin-top:10px}
 
-    /* ---------- Sections (cards) ---------- */
+    /* ====== Section cards (About / Projects / Contact) ====== */
     section.card{
       margin-top:28px;
-      padding:28px;
+      padding:26px;
       background:var(--card);
       border-radius:14px;
       box-shadow:var(--shadow-1);
     }
-    .section-title{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
     .section-title h2{margin:0;font-size:20px}
     .muted{color:var(--muted);font-size:14px}
 
-    /* ---------- Projects grid ---------- */
+    /* ====== Projects grid/cards ====== */
     .projects{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:16px;
-      margin-top:10px;
+      margin-top:6px;
     }
     .project{
-      background:#fff;
       border-radius:12px;
       padding:14px;
+      background:#fff;
       border:1px solid rgba(2,6,23,0.04);
-      transition:transform .22s ease, box-shadow .22s ease;
-      display:flex;flex-direction:column;gap:12px;
+      transition:transform .2s cubic-bezier(.2,.9,.3,1), box-shadow .2s ease;
+      display:flex;flex-direction:column;
+      min-height:220px;
+      gap:12px;
     }
     .project:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(2,6,23,0.06)}
-    .project .thumb{height:140px;border-radius:10px;object-fit:cover;background:#f2f5fb}
+    .thumb{height:140px;border-radius:8px;object-fit:cover;background:#f6f8fb;border:1px solid rgba(2,6,23,0.03)}
     .project h3{margin:0;font-size:16px}
-    .project .small{color:var(--muted);font-size:13px;margin-top:6px}
+    .meta{color:var(--muted);font-size:13px}
 
-    /* ---------- Contact form ---------- */
+    /* ====== Contact form ====== */
     form{display:grid;gap:12px;margin-top:8px}
     input[type="text"], input[type="email"], textarea{
       width:100%;padding:12px;border-radius:10px;border:1px solid #e6eef8;font-size:14px;
     }
-    button[type="submit"]{padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-dark));color:#fff;font-weight:700}
+    button[type="submit"]{padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent-2),var(--accent));color:#fff;font-weight:700}
 
-    /* ---------- Footer ---------- */
-    footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px;padding:28px 0}
+    /* ====== Footer ====== */
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;padding:28px 0}
 
-    /* ---------- Reveal animation ---------- */
-    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+    /* ====== Reveal animation ====== */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
-    /* ---------- Responsive ---------- */
+    /* ====== Responsiveness ====== */
     @media (max-width:980px){
       .hero{grid-template-columns:1fr 300px}
-      h1{font-size:44px}
+      .hero-title{font-size:48px}
     }
     @media (max-width:760px){
       .wrap{padding:18px}
-      .wrap-header{padding:12px 18px}
+      .wrap-header{padding:10px 18px}
       .hero{grid-template-columns:1fr;gap:18px}
-      h1{font-size:34px}
-      .profile-card{order:-1;padding:18px}
+      .profile-card{order:-1}
+      .avatar-wrap{right:16px;top:-54px}
+      .hero-title{font-size:34px}
       nav{display:none}
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header aria-hidden="false">
+  <header>
     <div class="wrap-header">
       <div class="logo">Mirali Purohit</div>
       <nav aria-label="Primary Navigation">
@@ -228,25 +214,38 @@
   </header>
 
   <main class="wrap" role="main">
-    <!-- Hero -->
+    <!-- Hero (left: text, right: profile card) -->
     <div class="hero">
       <div class="hero-left">
-        <p class="intro">Hi, I'm</p>
-        <h1>Mirali <span class="accent">Purohit</span></h1>
+        <p class="eyebrow">Hi, I'm</p>
+
+        <!-- First name bold & heavy, last name accented -->
+        <h1 class="hero-title">
+          <span class="first">Mirali</span>
+          <span class="last">Purohit</span>
+        </h1>
+
         <p class="lead">I design and build simple, accessible interfaces and front-end experiences. I focus on clean UI, fast interactions and reliable code.</p>
 
-        <div class="hero-cta">
+        <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">See my work</a>
           <a class="btn btn-ghost" href="#contact">Contact</a>
         </div>
       </div>
 
-      <aside class="profile-card reveal">
-        <!-- temporary image: replace with your photo or uploads/images/<your-photo>.jpg -->
-        <img src="/mnt/data/Screenshot 2025-11-21 at 12.20.00 PM.png" alt="Mirali Purohit — profile" class="avatar">
+      <!-- Profile / card on the right -->
+      <aside class="profile-card reveal" aria-label="Profile card">
+        <!-- Avatar: using the uploaded screenshot path as a placeholder.
+             Replace with a real headshot and move it into your repo (e.g. /images/me.jpg) -->
+        <div class="avatar-wrap">
+          <img class="avatar" src="/mnt/data/Screenshot 2025-11-21 at 12.20.00 PM.png" alt="Mirali Purohit — profile">
+        </div>
+
+        <div style="height:28px"></div> <!-- spacer so text doesn't collide with avatar -->
+
         <div class="profile-name">Mirali Purohit</div>
         <div class="profile-sub">Product Designer & Frontend Developer</div>
-        <div style="margin-top:10px;color:var(--muted);font-size:13px">Open to freelance & contract work</div>
+        <div class="profile-note">Open to freelance & contract work</div>
       </aside>
     </div>
 
@@ -268,31 +267,30 @@
 
       <div class="projects">
         <article class="project">
-          <div style="height:140px;border-radius:8px;overflow:hidden">
-            <!-- Replace thumbnails with real images in /images/ -->
-            <img src="https://via.placeholder.com/800x450?text=Project+1" alt="Project 1 screenshot" class="thumb">
+          <div style="overflow:hidden;border-radius:10px">
+            <img class="thumb" src="https://via.placeholder.com/1200x700?text=Project+1+screenshot" alt="Project 1 screenshot">
           </div>
           <h3>Project One</h3>
-          <div class="small muted">React · UI · Accessibility</div>
-          <a href="#" style="margin-top:auto;font-weight:700;color:var(--accent);text-decoration:none">View case study →</a>
+          <div class="meta">React · UI · Accessibility</div>
+          <a href="#" style="margin-top:auto;color:var(--accent-2);font-weight:700">View case study →</a>
         </article>
 
         <article class="project">
-          <div style="height:140px;border-radius:8px;overflow:hidden">
-            <img src="https://via.placeholder.com/800x450?text=Project+2" alt="Project 2 screenshot" class="thumb">
+          <div style="overflow:hidden;border-radius:10px">
+            <img class="thumb" src="https://via.placeholder.com/1200x700?text=Project+2+screenshot" alt="Project 2 screenshot">
           </div>
           <h3>Project Two</h3>
-          <div class="small muted">Design system · Prototyping</div>
-          <a href="#" style="margin-top:auto;font-weight:700;color:var(--accent);text-decoration:none">View case study →</a>
+          <div class="meta">Design system · Prototyping</div>
+          <a href="#" style="margin-top:auto;color:var(--accent-2);font-weight:700">View case study →</a>
         </article>
 
         <article class="project">
-          <div style="height:140px;border-radius:8px;overflow:hidden">
-            <img src="https://via.placeholder.com/800x450?text=Project+3" alt="Project 3 screenshot" class="thumb">
+          <div style="overflow:hidden;border-radius:10px">
+            <img class="thumb" src="https://via.placeholder.com/1200x700?text=Project+3+screenshot" alt="Project 3 screenshot">
           </div>
           <h3>Project Three</h3>
-          <div class="small muted">Frontend · Performance</div>
-          <a href="#" style="margin-top:auto;font-weight:700;color:var(--accent);text-decoration:none">View case study →</a>
+          <div class="meta">Frontend · Performance</div>
+          <a href="#" style="margin-top:auto;color:var(--accent-2);font-weight:700">View case study →</a>
         </article>
       </div>
     </section>
@@ -304,13 +302,12 @@
         <div class="muted">Say hi — let's chat</div>
       </div>
 
-      <!-- By default this is a fake submit. To receive real messages, connect Formspree or Netlify Forms -->
       <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
-        <input type="text" id="name" placeholder="Your name" required />
-        <input type="email" id="email" placeholder="you@example.com" required />
+        <input type="text" id="name" placeholder="Your name" required>
+        <input type="email" id="email" placeholder="you@example.com" required>
         <textarea id="message" rows="6" placeholder="What are you working on?" required></textarea>
         <button type="submit">Send</button>
-        <p id="formMsg" class="muted" style="margin:6px 0 0 0"></p>
+        <p id="formMsg" class="muted" style="margin:8px 0 0 0"></p>
       </form>
     </section>
 
@@ -320,10 +317,10 @@
   </main>
 
   <script>
-    // ---------- small helpers ----------
+    // small helpers for interactivity & reveal behavior
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // smooth scroll for internal links
+    // smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const href = a.getAttribute('href');
@@ -335,7 +332,7 @@
       });
     });
 
-    // reveal on scroll
+    // IntersectionObserver reveal
     const revealEls = Array.from(document.querySelectorAll('.reveal'));
     const revealObserver = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
@@ -347,28 +344,28 @@
     },{threshold:0.12});
     revealEls.forEach(e=>revealObserver.observe(e));
 
-    // nav active state
+    // nav active state based on sections
     const sections = document.querySelectorAll('main section[id]');
     const navLinks = Array.from(document.querySelectorAll('nav a'));
     const obs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
           const id = e.target.id;
-          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+id));
+          navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+id));
         }
       });
     },{threshold:0.45});
     sections.forEach(s=>obs.observe(s));
 
-    // fake contact submit (replace with real provider later)
+    // fake contact submit (replace with Formspree/Netlify later)
     function handleSubmit(e){
       e.preventDefault();
       const msg = document.getElementById('formMsg');
       msg.textContent = "Sending…";
       setTimeout(()=>{
-        msg.textContent = "Thanks! Your message was (pretend) sent. To make this real connect Formspree or Netlify Forms.";
+        msg.textContent = "Thanks — message sent (demo). Connect Formspree or Netlify to receive real messages.";
         document.getElementById('contactForm').reset();
-      },700);
+      },800);
     }
   </script>
 </body>
