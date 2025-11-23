@@ -282,6 +282,76 @@
             text-decoration: underline;
         }
 
+        /* Featured publication card layout (for first project) */
+        .pub-item-detailed {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .pub-thumb {
+            width: 260px;
+            min-width: 260px;
+            height: 160px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f5a623, #f76b1c);
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 10px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .pub-thumb span {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .pub-main {
+            flex: 1;
+        }
+
+        .pub-actions {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pub-actions a {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 1px solid #d0d0d0;
+            background-color: #fff;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .pub-actions a:hover {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .pub-item-detailed {
+                flex-direction: column;
+            }
+
+            .pub-thumb {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .profile-image {
                 float: none;
@@ -491,14 +561,19 @@
         <section class="publications">
             <h2>Selected Publications</h2>
 
-            <div class="pub-item">
-                <div class="pub-title">Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks</div>
-                <div class="pub-authors"><strong>Mirali Purohit</strong>, Bimal Gajera, Vatsal Malaviya, Irish Mehta, Kunal Kasodekar, Jacob Adler, Steven Lu, Umaa Rebbapragada, Hannah Kerner</div>
-                <div class="pub-venue">In <span class="venue-highlight">NeurIPS 2025</span></div>
-                <div class="pub-links">
-                    <a href="https://mars-bench.github.io/" target="_blank">[Project Page]</a>
-                    <a href="https://mars-bench.github.io/" target="_blank">[Paper]</a>
-                    <a href="https://mars-bench.github.io/" target="_blank">[Code]</a>
+            <div class="pub-item pub-item-detailed">
+                <div class="pub-thumb">
+                    <span>Mars-Bench</span>
+                </div>
+                <div class="pub-main">
+                    <div class="pub-title">Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks</div>
+                    <div class="pub-authors"><strong>Mirali Purohit</strong>, Bimal Gajera, Vatsal Malaviya, Irish Mehta, Kunal Kasodekar, Jacob Adler, Steven Lu, Umaa Rebbapragada, Hannah Kerner</div>
+                    <div class="pub-venue">In <span class="venue-highlight">NeurIPS 2025</span></div>
+                    <div class="pub-actions">
+                        <a href="https://mars-bench.github.io/" target="_blank">Project</a>
+                        <a href="https://mars-bench.github.io/" target="_blank">Paper</a>
+                        <a href="https://mars-bench.github.io/" target="_blank">Code</a>
+                    </div>
                 </div>
             </div>
 
