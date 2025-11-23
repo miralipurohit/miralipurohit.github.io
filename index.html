@@ -322,7 +322,8 @@
             gap: 10px;
         }
 
-        .pub-actions a {
+        .pub-actions a,
+        .pub-actions button {
             display: inline-block;
             padding: 6px 16px;
             border-radius: 999px;
@@ -333,12 +334,27 @@
             letter-spacing: 0.08em;
             color: #333;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        .pub-actions a:hover {
+        .pub-actions a:hover,
+        .pub-actions button:hover,
+        .pub-actions button.pub-btn-active {
             background-color: #000;
             color: #fff;
             border-color: #000;
+        }
+
+        .pub-extra {
+            margin-top: 18px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #ffe0e5;
+            background-color: #fff7f9;
+            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+            font-size: 0.85em;
+            white-space: pre-wrap;
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -570,10 +586,18 @@
                     <div class="pub-authors"><strong>Mirali Purohit</strong>, Bimal Gajera, Vatsal Malaviya, Irish Mehta, Kunal Kasodekar, Jacob Adler, Steven Lu, Umaa Rebbapragada, Hannah Kerner</div>
                     <div class="pub-venue">In <span class="venue-highlight">NeurIPS 2025</span></div>
                     <div class="pub-actions">
-                        <a href="https://mars-bench.github.io/" target="_blank">Project</a>
-                        <a href="https://mars-bench.github.io/" target="_blank">Paper</a>
-                        <a href="https://mars-bench.github.io/" target="_blank">Code</a>
+                        <button type="button" class="pub-btn" data-toggle="extra" data-target="mars-abs">ABS</button>
+                        <button type="button" class="pub-btn" data-toggle="extra" data-target="mars-bib">BIB</button>
+                        <a href="https://mars-bench.github.io/" target="_blank">Website</a>
+                        <a href="https://arxiv.org/pdf/2510.24010" target="_blank">PDF</a>
+                        <a href="https://huggingface.co/collections/Mirali33/mars-bench" target="_blank">HuggingFace</a>
+                        <a href="https://zenodo.org/communities/mars-bench/records" target="_blank">Zenodo</a>
+                        <a href="https://github.com/kerner-lab/Mars-Bench" target="_blank">GitHub</a>
+                        <a href="https://huggingface.co/spaces/Mirali33/Mars-Bench" target="_blank">LeaderBoard</a>
+                        <a href="https://huggingface.co/collections/Mirali33/mars-bench-models" target="_blank">Baseline Models</a>
                     </div>
+                    <div class="pub-extra" id="mars-abs">ABCD (abstract)</div>
+                    <div class="pub-extra" id="mars-bib">ABCD (bibtex)</div>
                 </div>
             </div>
 
@@ -652,5 +676,34 @@
             </div>
         </section>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.pub-actions button[data-toggle="extra"]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var main = btn.closest('.pub-main');
+                    if (!main) return;
+
+                    var targetId = btn.getAttribute('data-target');
+                    var panel = main.querySelector('#' + targetId);
+                    if (!panel) return;
+
+                    var isVisible = panel.style.display === 'block';
+
+                    main.querySelectorAll('.pub-extra').forEach(function (el) {
+                        el.style.display = 'none';
+                    });
+                    main.querySelectorAll('.pub-actions button[data-toggle="extra"]').forEach(function (b) {
+                        b.classList.remove('pub-btn-active');
+                    });
+
+                    if (!isVisible) {
+                        panel.style.display = 'block';
+                        btn.classList.add('pub-btn-active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
