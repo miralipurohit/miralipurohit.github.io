@@ -55,25 +55,21 @@
         }
 
         .profile-section {
-            display: flex;
-            gap: 40px;
             margin-bottom: 40px;
-            align-items: flex-start;
         }
-
-        .profile-content {
-            flex: 1;
-        }
-
+        
         .profile-image {
-            flex-shrink: 0;
+            float: right;
+            margin-left: 40px;
+            margin-bottom: 20px;
         }
-
+        
         .profile-image img {
             width: 280px;
             height: auto;
             border-radius: 8px;
             object-fit: cover;
+            display: block;
         }
 
         .bio p {
@@ -287,11 +283,12 @@
         }
 
         @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column-reverse;
-                align-items: center;
+            .profile-image {
+                float: none;
+                margin: 0 auto 20px;
+                text-align: center;
             }
-
+            
             .profile-image img {
                 width: 200px;
             }
@@ -326,28 +323,26 @@
             <h1>Mirali <span class="last-name">Purohit</span></h1>
             <p class="subtitle"><a href="#">Ph.D. Student</a>, School of Computing & AI, Arizona State University.</p>
         </header>
-
+        
         <div class="profile-section">
-            <div class="profile-content">
-                <div class="bio">
-                    <p>I am a Ph.D. student at Arizona State University (ASU). I am working alongside <a href="#">Dr. Hannah Kerner</a>. I have closely collaborated with researchers at <a href="#">NASA's Jet Propulsion Laboratory (JPL)</a> and <a href="#">Fujitsu Research of America</a>.</p>
-                    
-                    <p>I work at the intersection of <strong>Machine Learning</strong>, <strong>Earth Observation</strong>, and <strong>Planetary Science</strong>. My research focuses on building and evaluating <strong>foundation models</strong>, with expertise in managing <strong>large-scale data</strong> and developing models <strong>from scratch</strong>. I have also studied the efficiency of foundation models, particularly how <strong>spatial data distribution</strong> impacts model <strong>generalization</strong> and <strong>performance</strong>. To bridge existing gaps in planetary science, I have developed <strong>benchmarks for Martian applications</strong>, and one of my models has been deployed in <strong>NASA JPL’s Planetary Data System</strong>, where it assists <strong>planetary scientists</strong> and <strong>geologists</strong> in classifying <strong>Martian imagery</strong> by <strong>geologic features</strong>.</p>
-                    
-                    <div class="highlight">
-                        🚀 🚀 Currently, I am developing foundation models for Mars science and investigating how spatial distribution of pre-training data affects geospatial foundation model performance. My work includes creating benchmarks like <strong>Mars-Bench</strong> and <strong>ConeQuest</strong> for planetary science applications.
-                    </div>
-                    
-                    <p>I have extensive experience in developing large-scale <span class="green-text">text-to-image diffusion/flow</span> and <span class="green-text">unified multimodal models</span>, working across the full development lifecycle including <span class="green-text">mathematical foundations</span>, <span class="green-text">model architecture design</span>, <span class="green-text">pre-training</span> and <span class="green-text">RL alignment</span>. I focus on advancing both the fundamental understanding and building <span class="green-text">end-to-end systems</span> that push the boundaries of what's possible with <span class="green-text">diffusion</span> and <span class="green-text">multimodal models</span>.</p>
-                    
-                    <div class="note-box">
-                        <strong>Note:</strong> I am currently not taking on any new students for supervision. However, if you have a well-defined research proposal and can clearly articulate how we might collaborate, I welcome you to reach out.
-                    </div>
+            <div class="bio">
+                <div class="profile-image">
+                    <img src="images/1583909272522.jpeg" alt="Mirali Purohit">
                 </div>
-            </div>
-            
-            <div class="profile-image">
-                <img src="images/1583909272522.jpeg" alt="Mirali Purohit">
+                
+                <p>I am a Ph.D. student at Arizona State University (ASU). I am working alongside <a href="#">Dr. Hannah Kerner</a>. I have closely collaborated with researchers at <a href="#">NASA's Jet Propulsion Laboratory (JPL)</a> and <a href="#">Fujitsu Research of America</a>.</p>
+                
+                <p>I work at the intersection of <strong>Machine Learning</strong>, <strong>Earth Observation</strong>, and <strong>Planetary Science</strong>. My research focuses on building and evaluating <strong>foundation models</strong>, with expertise in managing <strong>large-scale data</strong> and developing models <strong>from scratch</strong>. I have also studied the efficiency of foundation models, particularly how <strong>spatial data distribution</strong> impacts model <strong>generalization</strong> and <strong>performance</strong>. To bridge existing gaps in planetary science, I have developed <strong>benchmarks for Martian applications</strong>, and one of my models has been deployed in <strong>NASA JPL’s Planetary Data System</strong>, where it assists <strong>planetary scientists</strong> and <strong>geologists</strong> in classifying <strong>Martian imagery</strong> by <strong>geologic features</strong>.</p>
+                
+                <div class="highlight">
+                    🚀 🚀 Currently, I am developing foundation models for Mars science and investigating how spatial distribution of pre-training data affects geospatial foundation model performance. My work includes creating benchmarks like <strong>Mars-Bench</strong> and <strong>ConeQuest</strong> for planetary science applications.
+                </div>
+                
+                <p>Throughout my Ph.D., I have completed research internships at <strong>NASA JPL</strong> and <strong>Fujitsu Research of America</strong>. I have published my work in leading venues, including <strong>NeurIPS</strong>, <strong>WACV</strong>, the <strong>International Conference on Mars</strong>, and several top workshops in the remote-sensing domain. In addition, I have served as a <strong>session chair</strong> at <strong>AGU 2025</strong>, as an <strong>executive secretary</strong> for the <strong>NASA ROSES</strong> (Research Opportunities in Space and Earth Sciences) grant review panel, and as a <strong>reviewer</strong> for major AI conferences such as <strong>CVPR</strong>, <strong>ICLR</strong>, <strong>AAAI</strong>, <strong>NeurIPS</strong>, and <strong>ICML</strong>. I have also presented my research at the <strong>Mars Forum</strong> (JPL/NASA) and the <strong>NASA SMD AI Workshop</strong>.</p>
+                
+                <div class="note-box">
+                    <strong>Note:</strong> I am currently not taking on any new students for supervision. However, if you have a well-defined research proposal and can clearly articulate how we might collaborate, I welcome you to reach out.
+                </div>
             </div>
         </div>
 
@@ -568,7 +563,7 @@
                     <a href="#" target="_blank">[Paper]</a>
                 </div>
             </div>
-            
+
             <div class="pub-item">
                 <div class="pub-title">Residual Neural Network Precisely Quantifies Dysarthria Severity-Level Based on Short-Duration Speech Segments</div>
                 <div class="pub-authors">Siddhant Gupta, Ankur Patil, <strong>Mirali Purohit</strong>, Mihir Parmar, Maitreya Patel, Hemant A. Patil, Rodrigo Capobianco Guido</div>
