@@ -352,10 +352,12 @@
             display: none;
         }
 
-        /* Make only the BibTeX block horizontally scrollable without affecting ABS text */
+        /* Make only the BibTeX block scrollable, without changing ABS or other content */
         #mars-bib {
-            white-space: pre;
-            overflow-x: auto;
+            white-space: pre;      /* preserve BibTeX formatting */
+            max-height: 220px;     /* limit vertical size of the box */
+            overflow-x: auto;      /* allow left-right scroll for long lines */
+            overflow-y: auto;      /* allow up-down scroll if content is tall */
         }
 
         @media (max-width: 768px) {
@@ -673,14 +675,6 @@ url={https://arxiv.org/pdf/2510.24010}
                 </div>
             </div>
 
-            <div class="pub-item">
-                <div class="pub-title">Residual Neural Network Precisely Quantifies Dysarthria Severity-Level Based on Short-Duration Speech Segments</div>
-                <div class="pub-authors">Siddhant Gupta, Ankur Patil, <strong>Mirali Purohit</strong>, Mihir Parmar, Maitreya Patel, Hemant A. Patil, Rodrigo Capobianco Guido</div>
-                <div class="pub-venue">In <span class="venue-highlight">Neural Networks Journal</span>, Elsevier 2020</div>
-                <div class="pub-links">
-                    <a href="#" target="_blank">[Paper]</a>
-                </div>
-            </div>
         </section>
     </div>
 
