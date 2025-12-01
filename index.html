@@ -352,6 +352,12 @@
             display: none;
         }
 
+        /* Make only the BibTeX block horizontally scrollable without affecting ABS text */
+        #mars-bib {
+            white-space: pre;
+            overflow-x: auto;
+        }
+
         @media (max-width: 768px) {
             .pub-item-detailed {
                 flex-direction: column;
